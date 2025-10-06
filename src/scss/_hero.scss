@@ -1,0 +1,118 @@
+@use 'config.scss';
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  padding-top: 80px;
+  overflow: hidden;
+  background-image: url('../../assets/img/hero-bg.png');
+
+  &__container {
+    margin: 0 auto;
+    padding: 0 25px;
+    max-width: 1250px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__left {
+    width: 80%;
+    z-index: 10;
+
+    .button {
+      display: inline-block;
+      margin-top: 24px;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #ffffffc7;
+      background-color: config.$primary;
+      padding: 16px;
+      border-radius: 8px;
+
+      i {
+        transform: rotate(-90deg);
+      }
+    }
+
+    h2 {
+      color: config.$primary;
+      font-size: 72px;
+      font-weight: 500;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 56px;
+      font-weight: 500;
+      width: 100%;
+      color: #fff;
+
+      strong {
+        font-weight: 500;
+        color: config.$primary;
+      }
+    }
+
+    p {
+      font-size: 24px;
+      width: 100%;
+      margin-top: 16px;
+      color: #ffffffc7;
+      visibility: hidden;
+
+      &:after {
+        content: '|';
+        animation: blink 0.875s infinite;
+        font-weight: 400;
+        color: config.$primary;
+      }
+    }
+  }
+
+  &__right {
+    width: 20%;
+    position: relative;
+
+    img {
+      width: 1000px;
+      position: absolute;
+      top: -200px;
+      left: -250px;
+    }
+  }
+
+  /* --- ESTILOS RESPONSIVOS --- */
+
+  @media (max-width: 767px) {
+    &__left {
+      width: 100%;
+      text-align: center; // Centraliza o conteúdo
+
+      h2 {
+        font-size: 56px;
+      }
+      h1 {
+        font-size: 42px;
+      }
+      p {
+        width: 90%;
+        margin: 16px auto 0 auto; // Centraliza o parágrafo
+      }
+    }
+
+    &__right {
+      display: none;
+    }
+  }
+}

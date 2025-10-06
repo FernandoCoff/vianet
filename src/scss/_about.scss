@@ -1,0 +1,128 @@
+@use 'config.scss';
+
+.about {
+  max-width: 1250px;
+  padding: 0 25px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+
+
+  &__content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 48px;
+  }
+
+  &__left, &__right {
+    // Estado inicial (antes da animação)
+    opacity: 0;
+    transition: opacity 1.8s ease-out, transform 1.8s ease-out;
+  }
+
+  &__left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 24px;
+    transform: translateY(-50px); // Começa 50px acima
+
+    h3 {
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 16px;
+      color: config.$gray2;
+    }
+  }
+
+  &__right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform: translateX(50px); // Começa 50px à direita
+
+    img {
+      width: 1000px;
+      position: absolute;
+      right: -300px;
+      bottom: -300px;
+    }
+  }
+
+  /* ESTADO VISÍVEL (QUANDO A ANIMAÇÃO É ATIVADA) */
+  &.is-visible {
+    .about__left, .about__right {
+      opacity: 1;
+      transform: translate(0, 0); // Volta para a posição original
+    }
+    // Atraso para a imagem aparecer um pouco depois do texto
+    .about__right {
+      transition-delay: 0.2s;
+    }
+  }
+
+
+  /* --- ESTILOS RESPONSIVOS --- */
+
+  @media (max-width: 1250px) {
+    &__right {
+      img {
+        right: -400px;
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    margin: 48px auto;
+
+    &__content {
+      flex-direction: column-reverse;
+    }
+
+    &__left {
+      width: 100%;
+      // Reseta a animação em telas menores se o layout muda muito
+      transform: none;
+      opacity: 1;
+    }
+
+    &__right {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 48px;
+      height: 500px;
+      // Reseta a animação em telas menores
+      transform: none;
+      opacity: 1;
+
+      img {
+        width: 1000px;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__right {
+      height: 400px;
+
+      img {
+        width: 800px;
+        bottom: 0;
+        left: -100px;
+      }
+    }
+  }
+}

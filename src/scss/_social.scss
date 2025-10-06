@@ -1,0 +1,74 @@
+// Definição de variáveis de cor para fácil customização
+$whatsapp-color: #25D366;
+$phone-color: #34B7F1;
+$email-color: #EA4335;
+$white-color: #FFFFFF;
+$shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+$shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.25);
+
+
+.floating-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100; // Garante que fiquem acima da maioria dos conteúdos
+  display: flex;
+  flex-direction: column;
+  gap: 16px; // Espaçamento entre os botões
+
+  &__button {
+    // Layout e Alinhamento
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Tamanho e Formato
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; // Deixa o botão perfeitamente circular
+
+    // Estilos Visuais
+    box-shadow: $shadow;
+    color: $white-color;
+    text-decoration: none; // Remove o sublinhado do link
+
+    // Ícone
+    font-size: 28px;
+
+    // Animação Suave
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    // Efeito ao passar o mouse
+    &:hover {
+      transform: scale(1.1) translateY(-2px); // Aumenta e levanta um pouco
+      box-shadow: $shadow-hover;
+    }
+
+    // Cores específicas para cada botão
+    &--whatsapp {
+      background-color: $whatsapp-color;
+    }
+    &--phone {
+      background-color: $phone-color;
+    }
+    &--email {
+      background-color: $email-color;
+    }
+  }
+}
+
+/* --- RESPONSIVO (Opcional) --- */
+/* Para telas menores, os botões podem ser um pouco menores */
+@media (max-width: 768px) {
+  .floating-buttons {
+    bottom: 20px;
+    right: 20px;
+    gap: 12px;
+
+    &__button {
+      width: 55px;
+      height: 55px;
+      font-size: 24px;
+    }
+  }
+}

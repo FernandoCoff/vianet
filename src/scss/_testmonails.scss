@@ -1,0 +1,93 @@
+@use 'config.scss';
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.testmonails {
+  max-width: 1250px;
+  width: 100%;
+  padding: 0 25px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @media(max-width: 1000px) {
+    margin: 48px auto;
+  }
+
+  &__group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 24px;
+    margin-top: 48px;
+
+    @media(max-width: 1000px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+    &.animate {
+      animation: slideInFromLeft 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    &:nth-child(2).animate {
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(3).animate {
+      animation-delay: 0.8s;
+    }
+
+    min-width: 300px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    @media(max-width: 1000px) {
+      margin-bottom: 24px;
+      height: 175px;
+    }
+
+    h4 {
+      width: 100%;
+      text-transform: uppercase;
+      border-left: 4px solid config.$primary;
+      padding-left: 16px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    p {
+      width: 100%;
+      font-size: 16px;
+      margin-top: 8px;
+      color: config.$gray2;
+      line-height: 150%;
+    }
+
+    small {
+      width: 100%;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  }
+}

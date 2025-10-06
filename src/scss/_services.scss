@@ -1,0 +1,96 @@
+@use 'config.scss';
+
+.services {
+  background-color: config.$tertiary;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0; // Adicionado padding vertical para espaçamento
+
+  &__content {
+    padding: 0 25px;
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__group {
+    margin-top: 48px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  &__item {
+    background-color: #fff;
+    padding: 24px;
+    min-width: 300px;
+    height: 250px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    border-radius: 8px;
+
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-top: 24px;
+      font-size: 16px;
+      line-height: 150%;
+      color: config.$gray2;
+    }
+
+    &.--contact {
+      background-color: config.$secondary;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      p {
+        color: #ffffffc7;
+      }
+
+      a {
+        color: #fff;
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 2px solid #fff;
+        padding-bottom: 2px;
+        align-self: flex-start; // Garante que o link não estique
+      }
+    }
+
+    &:hover {
+      transform: scale(1.05) translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  /* --- ESTILOS RESPONSIVOS --- */
+
+  @media (max-width: 1100px) {
+    &__content {
+      margin: 48px auto;
+    }
+    &__group {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__group {
+      grid-template-columns: 1fr;
+    }
+  }
+}

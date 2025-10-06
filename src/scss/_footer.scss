@@ -1,0 +1,72 @@
+@use 'config.scss';
+
+.footer {
+  background-image: url('../../assets/img/hero-bg.png');
+
+  &__container {
+    max-width: 1250px;
+    width: 100%;
+    padding: 24px 25px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .adress {
+      font-size: 14px;
+      margin-top: 8px;
+      text-decoration: none;
+      color: #ffffffc7;
+    }
+
+    p {
+      font-size: 14px;
+      margin-top: 8px;
+      text-decoration: none;
+      color: #ffffffc7;
+    }
+
+    h5 {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+  }
+
+  &__infos {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 0;
+
+    &__item {
+      max-width: 300px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  /* --- ESTILOS RESPONSIVOS --- */
+
+  @media (max-width: 767px) {
+    &__infos {
+      flex-direction: column;
+      align-items: flex-start; // Alinha os itens à esquerda
+
+      &__item {
+        text-align: left;
+        max-width: 100%;
+      }
+    }
+  }
+}

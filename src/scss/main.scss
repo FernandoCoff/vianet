@@ -1,7 +1,12 @@
-body {
-  font-family: sans-serif;
-
-  h1 {
-    text-align: center;
-  }
-}
+@use 'config.scss';
+@use 'header';
+@use 'hero';
+@use 'social';
+@use 'about';
+@use 'services';
+@use 'testmonails';
+@use 'banner';
+@use 'galery';
+@use 'faq';
+@use 'contact';
+@use 'footer';
