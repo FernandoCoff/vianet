@@ -1,13 +1,13 @@
 @use 'config.scss';
 
 .services {
-  background-color: config.$tertiary;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 0; // Adicionado padding vertical para espaçamento
+  padding: 80px 0;
+  background-color: config.$blue;
 
   &__content {
     padding: 0 25px;
@@ -51,7 +51,7 @@
     }
 
     &.--contact {
-      background-color: config.$secondary;
+      background: config.$secondary;
       color: #fff;
       display: flex;
       justify-content: space-between;

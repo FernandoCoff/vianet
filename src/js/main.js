@@ -78,19 +78,27 @@ document.addEventListener("DOMContentLoaded", function() {
     threshold: 0.6
   };
 
+  // --- CÓDIGO CORRIGIDO DO OBSERVER DA NAVEGAÇÃO ---
   const sectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
+      // Verifica se a seção está visível na tela
       if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.classList.remove('is-active-link');
-        });
-
         const id = entry.target.getAttribute('id');
+        // Procura por um link no menu que corresponda ao ID da seção visível
         const activeLink = document.querySelector(`.navbar__item a[href="#${id}"]`);
 
+        // SÓ executa a lógica se um link correspondente for encontrado
         if (activeLink) {
+          // Remove a classe ativa de todos os links do menu
+          navLinks.forEach(link => {
+            link.classList.remove('is-active-link');
+          });
+
+          // Adiciona a classe ativa apenas ao link encontrado
           activeLink.classList.add('is-active-link');
         }
+        // Se 'activeLink' for nulo (ou seja, a seção não está no menu),
+        // nada acontece e o link ativo anterior é mantido.
       }
     });
   }, observerOptions);
@@ -98,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
   sections.forEach(section => {
     sectionObserver.observe(section);
   });
+  // --- FIM DA CORREÇÃO ---
 
   const handleNavbarScroll = () => {
     if (heroSection && header) {
@@ -127,14 +136,16 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 }); // Dispara quando 20% da seção estiver visível
+  }, {
+    threshold: 0.2
+  }); // Dispara quando 20% da seção estiver visível
 
   // Inicia a observação da seção .about
   if (aboutSection) {
     aboutObserver.observe(aboutSection);
   }
 
-   // --- ANIMAÇÃO EM CASCATA DA SEÇÃO FAQ ---
+  // --- ANIMAÇÃO EM CASCATA DA SEÇÃO FAQ ---
   const faqList = document.querySelector('.faq__list');
 
   const faqObserver = new IntersectionObserver((entries, observer) => {
@@ -145,7 +156,9 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 }); // Dispara quando 10% da lista estiver visível
+  }, {
+    threshold: 0.1
+  }); // Dispara quando 10% da lista estiver visível
 
   // Inicia a observação da lista de perguntas
   if (faqList) {

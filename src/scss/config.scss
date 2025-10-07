@@ -1,10 +1,12 @@
 // variables
-$primary: #2a79d4;
-$secondary: #064274;
-$tertiary: #2a79d441;
+$primary: #2e7bd3;
+$secondary: #051650;
+$tertiary: #2870ddb7;
+$white: #f5f5f5;
 $gray: #f5f5f575;
-$gray2: #000000a1;
+$gray2: #00000080;
 $nav: #e5f2ff7a;
+$blue: #2e7bd350;
 
 // Config
 *{
@@ -39,10 +41,10 @@ img{
 
 .title{
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 500;
   strong{
     color: $primary;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   @media(max-width: 767px){
