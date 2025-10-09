@@ -31,8 +31,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <script src="https://kit.fontawesome.com/cc5f700981.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" href="../assets/img/favicon-32x32.png" type="image">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
@@ -267,36 +269,37 @@
       </div>
     </section>
 
-    <section id="galery" class="galery">
-      <h2 class="title">Nossa <strong>Galeria.</strong></h2>
-      <p class="subtitle">Venha fazer parte da nossa história</p>
-      <div class="galery__group">
-        <div class="galery__group__item">
-          <img src="../assets/img/pedro.jpg" alt="Aluno aprovado da ViaNet sorrindo com o seu certificado">
-          <span>Aluno Aprovado</span>
+<section id="galery" class="galery">
+    <h2 class="title">Nossa <strong>Galeria.</strong></h2>
+    <p class="subtitle">Venha fazer parte da nossa história</p>
+
+    <div class="galery__group swiper">
+        <div class="swiper-wrapper">
+            <div class="galery__group__item swiper-slide">
+                <img src="../assets/img/pedro.jpg" alt="Aluno aprovado da ViaNet sorrindo com o seu certificado">
+            </div>
+            <div class="galery__group__item swiper-slide">
+                <img src="../assets/img/viaturas-04.jpg" alt="Viatura de instrução da escola de condução">
+            </div>
+            <div class="galery__group__item swiper-slide">
+                <img src="../assets/img/class.jpg" alt="Sala de aula para aulas teóricas na ViaNet">
+            </div>
+            <div class="galery__group__item swiper-slide">
+                <img src="../assets/img/viatura-02.jpg" alt="Detalhe do interior de um carro de instrução">
+            </div>
+            <div class="galery__group__item swiper-slide">
+                <img src="../assets/img/alunos-01.jpg" alt="Grupo de alunos felizes após a aprovação no exame">
+            </div>
+            <div class="galery__group__item swiper-slide">
+                <img src="../assets/img/viatura-03.jpg" alt="Carro da escola de condução ViaNet estacionado">
+            </div>
         </div>
-        <div class="galery__group__item">
-          <img src="../assets/img/viaturas-04.jpg" alt="Viatura de instrução da escola de condução">
-          <span>Viatura</span>
-        </div>
-        <div class="galery__group__item">
-          <img src="../assets/img/class.jpg" alt="Sala de aula para aulas teóricas na ViaNet">
-          <span>Sala de aula</span>
-        </div>
-        <div class="galery__group__item">
-          <img src="../assets/img/viatura-02.jpg" alt="Detalhe do interior de um carro de instrução">
-          <span>Viatura</span>
-        </div>
-        <div class="galery__group__item">
-          <img src="../assets/img/alunos-01.jpg" alt="Grupo de alunos felizes após a aprovação no exame">
-          <span>Alunos Aprovados</span>
-        </div>
-        <div class="galery__group__item">
-          <img src="../assets/img/viatura-03.jpg" alt="Carro da escola de condução ViaNet estacionado">
-          <span>Viatura</span>
-        </div>
-      </div>
-    </section>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</section>
 
     <section id="faq" class="faq">
       <h2 class="title">Perguntas <strong>Frequentes.</strong></h2>
@@ -393,26 +396,53 @@
 
   <footer id="footer" class="footer">
     <div class="footer__container">
-      <h2>Escola de Condução Vianet</h2>
-      <div class="footer__infos">
-        <div class="footer__infos__item">
-          <h5>Morada</h5>
-          <a href="https://maps.app.goo.gl/6jedjUizekKnovQ36" class="adress" target="_blank" rel="noopener noreferrer">Rua de Pisa, Nº 11, Loja Direita 2605-842 Casal de Cambra</a>
+      <div class="footer__container__item --logo">
+        <div>
+          <img src="../assets/img/vnet_logo.png" alt="logo vianet">
+          <h4>ViaNet</h4>
         </div>
-        <div class="footer__infos__item">
-          <h5>Contato</h5>
-          <p>219 807 997</p>
-          <p>916 626 611</p>
-          <p>919 997 579</p>
+        <p>
+          Há 25 anos transformando a vida de contudores
+          atráves de um ensino humanizado e de qualidade,
+          focado, sempre na satisfação do cliente.
+        </p>
+      </div>
+      <div class="footer__container__item --links">
+        <h4>Acesso Rápido</h4>
+        <a href="#hero">Inicío</a>
+        <a href="#about">Sobre nós</a>
+        <a href="#services">Serviços</a>
+        <a href="#testmonails">Depoimentos</a>
+        <a href="#contact">Contatos</a>
+      </div>
+      <div class="footer__container__item --contact">
+        <h4>Contatos</h4>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+         <div>
+           <a href="tel:219807997" target="_blank">219 807 997</a>
+          <a href="tel:916626611" target="_blank">916 626 611</a>
+          <a href="tel:919997579" target="_blank">919 997 579</a>
+         </div>
         </div>
-        <div class="footer__infos__item">
-          <h5>Horários</h5>
-          <p>Segunda a Sexta: 09h00 - 19h00</p>
-          <p>Sábados: 09h00 - 13h00</p>
-          <p>Domingos: Fechado</p>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            <a href="mailto:vianet1027@live.com.pt" target="_blank">vianet1027@live.com.pt</a>
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin text-wood-400 mt-1 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <a href="https://www.google.com/maps/place/Escola+de+Condu%C3%A7%C3%A3o+Via+Net,+Lda./@38.8008266,-9.2290151,19z/data=!3m1!4b1!4m6!3m5!1s0xd1ed288b6e677f7:0xcba37f1c47916d25!8m2!3d38.8008266!4d-9.2290151!16s%2Fg%2F1tcw4x4b?entry=ttu&g_ep=EgoyMDI1MTAwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+            Rua de pisa, Nº 11, Loja Direita, Casal de Cambra, 2605-842
+          </a>
         </div>
       </div>
-      <p>Todos os direitos reservados - ViaNet ©</p>
+    </div>
+    <div class="footer__final">
+      <p>© 2025 ViaNet. Todos os direitos reservados.</p>
+      <div>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Cookies</a>
+      </div>
     </div>
   </footer>
 

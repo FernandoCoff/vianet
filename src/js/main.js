@@ -78,27 +78,18 @@ document.addEventListener("DOMContentLoaded", function() {
     threshold: 0.6
   };
 
-  // --- CÓDIGO CORRIGIDO DO OBSERVER DA NAVEGAÇÃO ---
   const sectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      // Verifica se a seção está visível na tela
       if (entry.isIntersecting) {
         const id = entry.target.getAttribute('id');
-        // Procura por um link no menu que corresponda ao ID da seção visível
         const activeLink = document.querySelector(`.navbar__item a[href="#${id}"]`);
 
-        // SÓ executa a lógica se um link correspondente for encontrado
         if (activeLink) {
-          // Remove a classe ativa de todos os links do menu
           navLinks.forEach(link => {
             link.classList.remove('is-active-link');
           });
-
-          // Adiciona a classe ativa apenas ao link encontrado
           activeLink.classList.add('is-active-link');
         }
-        // Se 'activeLink' for nulo (ou seja, a seção não está no menu),
-        // nada acontece e o link ativo anterior é mantido.
       }
     });
   }, observerOptions);
@@ -106,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
   sections.forEach(section => {
     sectionObserver.observe(section);
   });
-  // --- FIM DA CORREÇÃO ---
 
   const handleNavbarScroll = () => {
     if (heroSection && header) {
@@ -122,46 +112,65 @@ document.addEventListener("DOMContentLoaded", function() {
 
   window.addEventListener('scroll', handleNavbarScroll);
 
-
-  // --- ANIMAÇÃO DA SEÇÃO "SOBRE NÓS" ---
   const aboutSection = document.querySelector('.about');
 
   const aboutObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      // Se a seção está visível
       if (entry.isIntersecting) {
-        // Adiciona a classe que dispara a animação
         entry.target.classList.add('is-visible');
-        // Para de observar o elemento para não repetir a animação
         observer.unobserve(entry.target);
       }
     });
   }, {
     threshold: 0.2
-  }); // Dispara quando 20% da seção estiver visível
+  });
 
-  // Inicia a observação da seção .about
   if (aboutSection) {
     aboutObserver.observe(aboutSection);
   }
 
-  // --- ANIMAÇÃO EM CASCATA DA SEÇÃO FAQ ---
   const faqList = document.querySelector('.faq__list');
 
   const faqObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Adiciona a classe que dispara a animação em cascata
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
       }
     });
   }, {
     threshold: 0.1
-  }); // Dispara quando 10% da lista estiver visível
+  });
 
-  // Inicia a observação da lista de perguntas
   if (faqList) {
     faqObserver.observe(faqList);
+  }
+
+  const gallerySwiper = document.querySelector('.galery__group');
+  if (gallerySwiper) {
+    const swiper = new Swiper(gallerySwiper, {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      centeredSlides: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 25,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        }
+      }
+    });
   }
 });
